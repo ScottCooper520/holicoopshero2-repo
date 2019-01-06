@@ -1,0 +1,11 @@
+*.pyc
+*~
+__pycache__
+venvhero2
+db.sqlite3
+/static
+.DS_Store
+ReadMeRSC.txt
+NotesRSC.txt
+local_settings.py
+djangogirls-tutorial-en.pdf

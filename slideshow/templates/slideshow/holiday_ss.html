@@ -1,0 +1,52 @@
+{% load static %}
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <script src="static/slideshow/js/mainJs.js"></script>
+        <link rel="stylesheet" type="text/css" href="static/slideshow/css/styles.css">
+    </head>
+<body>
+    <div class="container-fluid">
+        <!-- Following is for testing JS execution. -->
+        <!-- <div>
+            <button class="submit" onclick="slideFunction()">Run Ajax GET call</button>
+        </div> -->
+        <div>
+            Showing contents of first div... 
+        </div>
+        <div id="imageDiv" class="row">
+            imageDiv div
+                {% for slide in slides %}
+                {{ slide.image.url }}
+                <!--OK <p><img src="{% static "hss/images/CoopsApp2.PNG" %}" alt="My image"></p> -->
+                <!-- Following works, but needed to add Scott image just under static. -->
+                <!-- OK <p><img src="{% static "Scott.jpg" %}"/></p> -->
+                <!-- Following syntax is working. -->
+                <p><img src="/static/slideshow/images/{{slide.image.url}}"/></p>
+                {% endfor %}
+        </div>
+        <div id="captionDiv" class="row">
+            captionDiv div
+                {% for slide in slides %}
+                {{ slide.title }}
+        </br>
+                <!--OK <p><img src="{% static "hss/images/CoopsApp2.PNG" %}" alt="My image"></p> -->
+                <!-- Following works, but needed to add Scott image just under static. -->
+                <!-- OK <p><img src="{% static "Scott.jpg" %}"/></p> -->
+                <!-- Following syntax is working. -->
+                {% endfor %}
+        </div>
+    </div>
+</body>
+<script>
+    // All working in general, but JS Ajax call not returning...
+    //ok showAlert(); // In mainJs.js
+    // showImage();
+    // showSlides();
+    // function slideFunction() {
+    //     showSlides();
+    // }
+</script>
+</html>
